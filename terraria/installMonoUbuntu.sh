@@ -1,7 +1,10 @@
 #!/bin/sh
 
 # * Install mono on ubuntu according to: https://linuxize.com/post/how-to-install-mono-on-ubuntu-20-04/
-# The offical resource for installing as well: https://www.mono-project.com/download/stable/#download-lin-raspbian
+# The offical resource for installing as well...
+#   for ubuntu:         https://www.mono-project.com/download/stable/#download-lin-ubuntu
+#   and for raspbian:   https://www.mono-project.com/download/stable/#download-lin-raspbian
+
 
 # Install dependencies to add a repo over https for some extra security
 sudo apt update
