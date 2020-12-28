@@ -1,6 +1,6 @@
-# A docker image to build a container that runs the terraria server
+# A docker image to build a container that runs the terraria server on the raspberry pi
 
-# For now, we will use ubuntu
+# For now, we will use ubuntu as that's convenient - might look for smaller distros if size becomes an issue
 # This needs to be arm 32-bit compatible image as that is what the pi runs
 FROM arm32v7/ubuntu:latest
 
@@ -14,11 +14,17 @@ RUN wget ${terrariaDownloadLink}
 # Unzip files
 RUN unzip terraria-server*
 
-# Install mono for running the server on non x86 platformsv (like arm)
+# Change Workdir to the ./{version}/Linux folder
+ARG terrariaVersionFolder=1412
+WORKDIR /home/terrariaServer/${terrariaVersionFolder}/Linux
+
+# Install mono for running the server on non x86 platforms (like 32-bit arm)
 ADD installMonoUbuntu.sh .
 RUN ./installMonoUbuntu.sh
 
-# Todo: Mount world folder and Copy over server config file
+# Todo: Mount world folder - mount vs volume?
+# Todo: Copy over server config file
 
 # Run the server using mono
-CMD mono --server --gc=sgen -O=all .1402/Linux/TerrariaServer.exe
+CMD mono --server --gc=sgen -O=all .TerrariaServer.exe
+# -config serverconfig.txt
