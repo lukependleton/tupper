@@ -4,7 +4,7 @@
 # This needs to be arm 32-bit compatible image as that is what the pi runs
 FROM arm32v7/ubuntu:latest
 
-# Run in the 
+# Run in the terrariaServerFolder - look for best practice location to run in later
 WORKDIR /home/terrariaServer
 
 # Download terraria
