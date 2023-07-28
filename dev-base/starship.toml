@@ -1,0 +1,3 @@
+# * This setting will turn off the ⬢ [Docker] before the prompt - maybe would be beter to just move it to the above line
+# [container]
+# disabled = true
